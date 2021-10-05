@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@style/*": ["./style/*"],
+      "@common/*": ["./common/*"],
+      "@components/*": ["./components/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@layout/*": ["./layout/*"],
+      "@model/*": ["./model/*"],
+      "@pages/*": ["./pages/*"],
+      "@plugins/*": ["./plugins/*"],
+      "@router/*": ["./router/*"],
+      "@services/*": ["./services/*"],
+      "@store/*": ["./store/*"],
+      "@utils/*": ["./utils/*"]
+      // "@api/*": ["./API/*"],
+      // "@assets/*": ["./assets/*"],
+      // "@containers/*": ["./containers/*"],
+      // "@css/*": ["./css/*"],
+      // "@customHooks/*": ["./CustomHooks/*"],
+      // "@helperFuncs/*": ["./HelperFuncs/*"],
+      // "@hoc/*": ["./hoc/*"],
+      // "@middlewares/*": ["./middlewares/*"],
+      // "@models/*": ["./models/*"],
+      // "@store/*": ["./store/*"],
+      // "@actions/*": ["./store/actions*"],
+      // "@reducers/*": ["./store/reducers/*"],
+      // "@sagas/*": ["./store/sagas/*"],
+      // "@typings/*": ["./Typings/*"],
+      // "@utils/*": ["./utils/*"]
+    }
+  }
+}
