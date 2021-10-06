@@ -29,7 +29,7 @@ const ProductList: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
       <div className={`grid grid-cols-5 grid-rows-2 gap-x-4 gap-y-6 mx-24 mb-10 ${className}`}>
         {filterProducts &&
           filterProducts.map((p) => (
-            <Link key={p.id} href={`/product/${p.id}`}>
+            <Link key={p.id} passHref href={`/product/${p.id}`}>
               <ProductCard className="hover:shadow-inner" product={p} />
             </Link>
           ))}

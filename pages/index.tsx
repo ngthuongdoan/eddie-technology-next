@@ -17,7 +17,7 @@ const MainPage: React.FC = () => {
         <div
           className="relative w-full bg-center bg-cover"
           style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/static/ads_2.webp)`,
+            backgroundImage: `url(/ads_2.webp)`,
             height: '500px',
           }}
         >

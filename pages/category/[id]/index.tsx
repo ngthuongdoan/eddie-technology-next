@@ -18,13 +18,12 @@ const CategoryPage: React.FC<Props> = (props): JSX.Element => {
   const isLoading = useSelector<RootState>((state) => state.loading.isLoading);
   const router = useRouter();
   console.log('🚀 ----------------------------------------------');
-  console.log('🚀 ~ file: index.tsx ~ line 20 ~ router', router.asPath);
+  console.log('🚀 ~ file: index.tsx ~ line 20 ~ router', router);
   console.log('🚀 ----------------------------------------------');
   const query = router.query;
-  const { categoryId } = query;
-  const { brands, colors, os, page } = useMemo(() => queryString.parse('', { arrayFormat: 'comma' }), [query]);
+  const { id, brands, colors, os, page } = query;
   const { data: products } = useFetch<Product[]>(
-    useCallback(() => getAllProductsWithCategory(categoryId as string, { brands, colors, os } as PhoneFilters), [categoryId, brands, colors, os])
+    useCallback(() => getAllProductsWithCategory(id as string, { brands, colors, os } as PhoneFilters), [id, brands, colors, os])
   );
 
   const onPageChange = (current: number) => {
