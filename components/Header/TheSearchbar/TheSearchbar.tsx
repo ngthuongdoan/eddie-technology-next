@@ -21,7 +21,7 @@ const TheSearchbar: React.FC = (props): JSX.Element => {
     <div className="bg-white shadow-md z-10 text-text font-bold w-full py-5 px-20 flex">
       <Link href="/">
         <div className="w-max flex flex-col items-center justify-center gap-2">
-          <Image src="/logo.svg" alt="Logo" width="50px" />
+          <Image src="/logo.svg" alt="Logo" width="50px" height="50px" />
           <h1>EDDIE</h1>
         </div>
       </Link>

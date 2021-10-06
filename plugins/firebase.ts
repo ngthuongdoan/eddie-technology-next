@@ -3,12 +3,12 @@ import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_APIKEY,
-  authDomain: process.env.REACT_APP_AUTHDOMAIN,
-  projectId: process.env.REACT_APP_PID,
-  storageBucket: process.env.REACT_APP_SB,
-  messagingSenderId: process.env.REACT_APP_MID,
-  appId: process.env.REACT_APP_APPID,
+  apiKey: process.env.NEXT_PUBLIC_APIKEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PID,
+  storageBucket: process.env.NEXT_PUBLIC_SB,
+  messagingSenderId: process.env.NEXT_PUBLIC_MID,
+  appId: process.env.NEXT_PUBLIC_APPID,
 };
 
 export const app = initializeApp(firebaseConfig);

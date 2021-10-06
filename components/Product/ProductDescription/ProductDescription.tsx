@@ -1,5 +1,5 @@
 import React from 'react';
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 import { ProductProps } from '@model/Product';
 
 const ProductDescription: React.FC<ProductProps> = ({ product }): JSX.Element => {
