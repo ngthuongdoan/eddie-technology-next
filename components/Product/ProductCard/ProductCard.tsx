@@ -4,7 +4,7 @@ import { ProductProps } from '@model/Product';
 import Card from '@components/UI/Card/Card';
 import Price from '@components/Common/Price/Price';
 interface Props {
-  href: string;
+  href?: string;
 }
 export type Ref = HTMLAnchorElement;
 

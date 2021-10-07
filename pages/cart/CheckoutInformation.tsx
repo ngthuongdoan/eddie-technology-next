@@ -15,9 +15,9 @@ const defaultProps = {
 };
 
 const CheckoutInformation: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
-  const history = useHistory();
+  const router = useRouter();
   const checkout = () => {
-    history.push('/checkout');
+    router.push('/checkout');
   };
   return (
     <div className={`rounded-none shadow-lg py-3 px-10 ${props.className}`}>

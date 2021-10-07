@@ -36,7 +36,7 @@ const ProductList: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
       </div>
       {products && products.length !== perPage && (
         <Pagination
-          className="w-full text-center mb-5"
+          className="w-full text-center mb-5 rc-pagination"
           current={currentPage}
           pageSize={perPage}
           total={products.length}
