@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import queryString from 'query-string';
 import { PHONE_FILTERS } from '@common/filters';
 import ClassNameProps from '@model/ClassNameProps';
 import Button from '@components/UI/Button/Button';
@@ -18,7 +17,10 @@ const FilterContainer: React.FC<Props & ClassNameProps> = (props): JSX.Element =
 
   const router = useRouter();
   const filter = () => {
-    router.push(`${router.pathname}?${queryString.stringify(filters)}`);
+    router.push({
+      pathname: router.pathname,
+      query: { id: router.query.id, ...filters },
+    });
   };
 
   return (

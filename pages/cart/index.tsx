@@ -3,8 +3,8 @@ import { Cart } from '@model/Cart';
 import { RootState } from '@model/ReduxType';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import CheckoutInformation from './CheckoutInformation';
-import ItemsList from './ItemsList';
+import CheckoutInformation from '@components/Cart/CheckoutInformation/CheckoutInformation';
+import ItemsList from '@components/Cart/ItemList/ItemsList';
 
 interface Props {}
 

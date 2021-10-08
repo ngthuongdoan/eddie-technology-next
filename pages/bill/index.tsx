@@ -1,12 +1,10 @@
 import Button from '@components/UI/Button/Button';
-import LoadingOverlay from '@components/UI/LoadingOverlay/LoadingOverlay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useAppDispatch } from '@hooks/use-app-dispatch';
 import { CartwithCode } from '@model/Cart';
 import { getCart } from '@services/cart.service';
 import React, { useState, useRef } from 'react';
 import { useAlert } from 'react-alert';
-import BillInformation from './BillInformation';
+import BillInformation from '@components/Bill/BillInformation/BillInformation';
 
 interface Props {}
 

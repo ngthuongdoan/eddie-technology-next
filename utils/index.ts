@@ -15,4 +15,5 @@ const getProductPrice = (product: Product) => {
   }
   return product.listedPrice;
 };
+
 export { toCurrency, removeNullAndUndefined, getProductPrice };

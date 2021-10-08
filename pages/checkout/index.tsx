@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { RootState } from '@model/ReduxType';
-import CheckoutInformation from '@pages/cart/CheckoutInformation';
+import CheckoutInformation from '@components/Cart/CheckoutInformation/CheckoutInformation';
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useSelector } from 'react-redux';

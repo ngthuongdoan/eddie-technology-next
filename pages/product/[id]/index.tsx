@@ -5,6 +5,7 @@ import ProductDescription from '@components/Product/ProductDescription/ProductDe
 import ProductOverview from '@components/Product/ProductOverview/ProductOverview';
 import ProductSpecification from '@components/Product/ProductSpecification/ProductSpecification';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { serialize } from '@utils/serializeAsJson';
 
 interface Props {
   product: Product;
@@ -25,15 +26,15 @@ const ProductDetail: React.FC<Props> = ({ product }): JSX.Element => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const products = await getAllProducts();
+  const paths = products.map((p) => ({
+    params: {
+      id: p.id,
+    },
+  }));
+
   return {
     fallback: 'blocking',
-    paths: products.map((p) => {
-      return {
-        params: {
-          id: p.id,
-        },
-      };
-    }),
+    paths,
   };
 };
 
@@ -43,7 +44,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: {
-      product: JSON.parse(JSON.stringify(product)),
+      product: serialize(product),
     },
   };
 };
