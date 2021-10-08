@@ -5,9 +5,18 @@ import { Provider } from 'react-redux';
 import DefaultLayout from '@layout/DefaultLayout';
 import store from '@store/index';
 import { cartActions } from '@store/modules/cart/reducer';
-import { useEffect } from 'react';
+import { ReactElement, ReactNode, useEffect } from 'react';
+import { NextPage } from 'next';
 
-function MyApp({ Component, pageProps }: AppProps) {
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   useEffect(() => {
     const getTodosFromLocalStorage = () => {
       const persistedState = localStorage.getItem('cart');
@@ -22,12 +31,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  return (
-    <Provider store={store}>
-      <DefaultLayout>
-        <Component {...pageProps} />;
-      </DefaultLayout>
-    </Provider>
-  );
+  const getLayout = Component.getLayout || ((page: ReactElement) => <DefaultLayout>{page}</DefaultLayout>);
+
+  return <Provider store={store}>{getLayout(<Component {...pageProps} />)}</Provider>;
 }
 export default MyApp;

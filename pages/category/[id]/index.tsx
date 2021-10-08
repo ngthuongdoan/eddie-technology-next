@@ -1,6 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import queryString from 'query-string';
 import NoValue from '@components/Common/NoValue/NoValue';
 import Product from '@model/Product';
 import { getAllProductsWithCategory } from '@services/product.service';
@@ -8,8 +6,7 @@ import ProductList from '@components/Product/ProductList/ProductList';
 import { PhoneFilters } from '@model/Filter';
 import FilterContainer from '@components/Filter/FilterContainer/FilterContainer';
 import { useRouter } from 'next/router';
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
-import { getAllCategory } from '@services/category.service';
+import { GetServerSideProps } from 'next';
 import { serialize } from '@utils/serializeAsJson';
 
 interface Props {
@@ -21,7 +18,10 @@ const CategoryPage: React.FC<Props> = ({ products, query }): JSX.Element => {
   const { brands, colors, os, page } = query;
   const router = useRouter();
   const onPageChange = (current: number) => {
-    router.push(`${router.pathname}?${queryString.stringify({ brands, colors, os, page: current })}`);
+    router.push({
+      pathname: router.pathname,
+      query: { id: router.query.id, brands, colors, os, page: current },
+    });
   };
 
   return (
@@ -38,21 +38,9 @@ const CategoryPage: React.FC<Props> = ({ products, query }): JSX.Element => {
     </>
   );
 };
-// export const getStaticPaths: GetStaticPaths = async (ctx) => {
-//   const categories = await getAllCategory();
-//   const paths = categories.map((c) => ({ params: { id: c.id } }));
-
-//   return {
-//     fallback: 'blocking',
-//     paths,
-//   };
-// };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const query = ctx.query!;
-  console.log('🚀 ------------------------------------------------------------------------------------');
-  console.log('🚀 ~ file: index.tsx ~ line 53 ~ constgetStaticProps:GetStaticProps= ~ params', ctx);
-  console.log('🚀 ------------------------------------------------------------------------------------');
   const products = await getAllProductsWithCategory(query.id as string, { brands: query.brands, colors: query.color, os: query.os } as PhoneFilters);
   if (!products) {
     return {
